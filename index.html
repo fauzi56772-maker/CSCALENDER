@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalender Interaktif 3-in-1</title>
+    
+    <!-- Google Fonts: Poppins untuk tampilan modern -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Menghubungkan file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Kalender -->
+        <header class="calendar-header">
+            <div class="month-year-selector">
+                <button id="prevMonth" class="nav-btn" aria-label="Bulan Sebelumnya">&lt;</button>
+                <div class="current-date-display">
+                    <h2 id="monthYear">Mei 2026</h2>
+                </div>
+                <button id="nextMonth" class="nav-btn" aria-label="Bulan Selanjutnya">&gt;</button>
+            </div>
+            
+            <!-- Dropdown untuk navigasi cepat -->
+            <div class="dropdown-controls">
+                <select id="monthSelect" aria-label="Pilih Bulan"></select>
+                <select id="yearSelect" aria-label="Pilih Tahun"></select>
+            </div>
+        </header>
+
+        <!-- Baris Nama Hari -->
+        <div class="weekdays-grid">
+            <div>Minggu</div>
+            <div>Senin</div>
+            <div>Selasa</div>
+            <div>Rabu</div>
+            <div>Kamis</div>
+            <div>Jumat</div>
+            <div>Sabtu</div>
+        </div>
+
+        <!-- Grid Tanggal (Akan diisi oleh JavaScript) -->
+        <div class="calendar-grid" id="calendarGrid">
+            <!-- Contoh struktur yang akan digenerate JS:
+            <div class="day-cell">
+                <span class="hijri-date">15 Syawal</span>
+                <span class="gregorian-date">25</span>
+                <span class="javanese-date">Senin Legi</span>
+            </div> 
+            -->
+        </div>
+    </div>
+
+    <!-- Elemen Tooltip Tersembunyi -->
+    <div id="holidayTooltip" class="tooltip hidden">
+        <span id="tooltipText"></span>
+    </div>
+
+    <!-- Menghubungkan file JavaScript -->
+    <script src="script.js">
+
