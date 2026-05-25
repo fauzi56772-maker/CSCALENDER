@@ -1,0 +1,217 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    background: #ffffff;
+    width: 95%;
+    max-width: 900px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    overflow: hidden;
+}
+
+/* Header Section */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.month-year-selector {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.current-date-display h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    text-transform: capitalize;
+}
+
+.nav-btn {
+    background: #eef2f5;
+    border: none;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    color: #555;
+}
+
+.nav-btn:hover {
+    background: #dfe6e9;
+    color: #000;
+}
+
+.dropdown-controls select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Weekdays Header */
+.weekdays-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: 500;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+/* Calendar Grid */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+/* Individual Day Cell */
+.day-cell {
+    background: #fafafa;
+    border-radius: 10px;
+    min-height: 100px; /* Tinggi kotak tanggal */
+    padding: 8px;
+    position: relative;
+    cursor: default;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.day-cell:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-color: #e0e0e0;
+    z-index: 1;
+}
+
+/* Empty cells (padding days) */
+.day-cell.empty {
+    background: transparent;
+    cursor: default;
+}
+
+/* Main Gregorian Date */
+.gregorian-date {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Hijri Date (Top Right/Left small) */
+.hijri-date {
+    font-size: 0.75rem;
+    color: #27ae60; /* Warna hijau islami */
+    font-weight: 500;
+    text-align: right;
+    margin-top: -5px;
+}
+
+/* Javanese Date (Bottom) */
+.javanese-date {
+    font-size: 0.7rem;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+    margin-top: auto; /* Push to bottom */
+    border-top: 1px solid #eee;
+    padding-top: 4px;
+}
+
+/* Special Days Styling */
+.day-cell.is-today {
+    background-color: #e3f2fd;
+    border: 2px solid #2196f3;
+}
+
+.day-cell.is-holiday .gregorian-date {
+    color: #e74c3c; /* Merah untuk libur */
+}
+
+.day-cell.is-holiday {
+    background-color: #fff5f5;
+}
+
+/* Tooltip Styling */
+.tooltip {
+    position: absolute;
+    background: #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 100;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.tooltip.visible {
+    opacity: 1;
+}
+
+.tooltip.hidden {
+    display: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        width: 100%;
+        border-radius: 0;
+    }
+    
+    .day-cell {
+        min-height: 80px;
+        padding: 5px;
+    }
+
+    .gregorian-date {
+        font-size: 1.1rem;
+    }
+
+    .hijri-date {
+        font-size: 0.65rem;
+    }
+
+    .javanese-date {
+        font-size: 0.6rem;
+    }
+    
+    .weekdays-grid div {
+        font-size: 0.75rem;
+    }
+}
